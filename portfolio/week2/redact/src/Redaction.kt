@@ -15,8 +15,5 @@ fun redact(input: String, textToRedact: String, redactChar: Char='X'): String {
         stringInput= String(workingArray)
         index = stringInput.indexOf(textToRedact)
     }
-
-    println(index)
-    println(String(workingArray))
     return String(workingArray)
 }
