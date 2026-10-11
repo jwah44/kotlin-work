@@ -5,7 +5,7 @@ import kotlin.io.path.Path
 import kotlin.io.path.readText
 import kotlin.io.path.writeText
 import kotlin.system.exitProcess
-/*
+
 fun usage() {
     println("Error: three command line arguments required")
     println("(text to be redacted, input filename, output filename)")
@@ -24,8 +24,4 @@ fun main(args: Array<String>) {
     val redactedText = redact(originalText, args[0])
 
     outputFile.writeText(redactedText)
-}
-*/
-fun main() {
-    redact("Hello COMP2850, Hello World!", "Hello")
 }

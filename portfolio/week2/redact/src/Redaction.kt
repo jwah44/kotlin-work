@@ -4,13 +4,13 @@
 fun redact(input: String, textToRedact: String, redactChar: Char='X'): String {
 
     val length = textToRedact.length
-    var stringInput = input
-    var workingArray = stringInput.toCharArray()
+    var stringInput = input // lets the string be changed
+    var workingArray = stringInput.toCharArray() // cannot replace elements in a string
     var index: Int = stringInput.indexOf(textToRedact)
 
-    while (index != -1) {
-        for (i in index..(index + length - 1)) {
-            workingArray[i] = redactChar
+    while (index != -1) { // while text to redact is present in the string
+        for (i in index..(index + length - 1)) { // range: start-end of text to redact
+            workingArray[i] = redactChar // replace character at index with redaction character
         }
         stringInput= String(workingArray)
         index = stringInput.indexOf(textToRedact)
