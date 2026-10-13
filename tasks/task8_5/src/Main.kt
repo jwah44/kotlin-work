@@ -2,4 +2,7 @@
 
 fun main() {
     // Add your testing code here
+    val text = readln()
+    val output = text.howMany { it.lowercase() in "bcdfghjklmnpqrstvwxyz"}
+    println(output)
 }
