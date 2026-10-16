@@ -18,5 +18,10 @@ fun main(args: Array<String>) {
     val result = translate[word]
 
     //println(result)
-    display(result)
+    fun display(text: String?) {
+        when (text) {
+            null -> println("?")
+            else -> println(text.uppercase())
+        }
+    }
 }
