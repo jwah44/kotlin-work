@@ -16,5 +16,9 @@ class MedianTest : FreeSpec({
         }
     }
 
+    "Exception if median does not = list[0] when size=1" {
+        median(List<Float>) shouldBe List[0] if (List.size == 1)
+    }
+
     // Write four more tests here
 })
