@@ -1,5 +1,6 @@
 // Task 7.7.1: program to compute stats for a numeric dataset
-fun main(args: String<Array>) {
-
+fun main(args: Array<String>) {
+    val filename = args.joinToString()
+    statsOutput((readData(filename)))
 
 }
