@@ -17,8 +17,23 @@ class MedianTest : FreeSpec({
     }
 
     "Exception if median does not = list[0] when size=1" {
-        median(List<Float>) shouldBe List[0] if (List.size == 1)
+        val input = List<Float>(1) { 0f } // List of size 1, populated with 0 float
+        median(input) shouldBe input[0]
     }
 
-    // Write four more tests here
+    "Exception if median does not = (list[0] + list[1]) / 2 when size=2" {
+        val input = listOf(1f, 5f) // arbritrary values in list of size 2
+        median(input) shouldBe ((input[0] + input[1]) / 2)
+    }
+
+    "Exception if median does not = list[1] when size=3" {
+        val input = listOf(3f, 11f, 9f) // arbritrary values in list of size 3
+        median(input) shouldBe input[1]
+    }
+
+    "Exception if median does not = (list[1] + list[2]) / 2 when size=4" {
+        val input = listOf(3f, 3f, 15f, 8f) // arbritrary values in list of size 2
+        median(input) shouldBe ((input[1] + input[2]) / 2)
+    }
+
 })
