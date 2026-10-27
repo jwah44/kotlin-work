@@ -48,12 +48,6 @@ class ToDoList() {
         var check = false
         val startsize = items.size
         // Write code here to remove items with status of Done
-        //val iterator = items.iterator()
-
-        //while(iterator.hasNext()) {
-        //    val item = iterator.next()
-        //    if(item.status == ItemStatus.Done) {
-        //        iterator.remove()
 
         items.removeIf{ it.status == ItemStatus.Done }
 
