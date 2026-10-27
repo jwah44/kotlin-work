@@ -20,16 +20,16 @@ class ToDoList() {
     }
 
     fun load(filename: String) {
+        var testlist = mutableListOf<ToDoItem>()
         // Implement code to read To Do list from a file here
         Path(filename).forEachLine {
-            //var itemvalues = it.split(": ")
-            //val time = LocalDate.parse(itemvalues[0])
+            var itemvalues = it.split(": ")
+            val time: LocalDate = LocalDate.parse(itemvalues[0])
 
-            //val enumval = ItemStatus.valueOf(itemvalues[1])
+            val enumval: ItemStatus = ItemStatus.valueOf(itemvalues[1])
+            var listaddition: ToDoItem = ToDoItem(time, enumval, itemvalues[2])
 
-            //items.add(ToDoItem(time, enumval, itemvalues[2]))
-
-            val itemlist
+            items.add(listaddition)
         }
         // See data/to-do.csv for an example of the format
     }
@@ -45,20 +45,40 @@ class ToDoList() {
     fun add(vararg item: ToDoItem) = item.forEach { items.add(it) }
 
     fun deleteDone(): Boolean {
+        var check = false
+        val startsize = items.size
         // Write code here to remove items with status of Done
+        //val iterator = items.iterator()
+
+        //while(iterator.hasNext()) {
+        //    val item = iterator.next()
+        //    if(item.status == ItemStatus.Done) {
+        //        iterator.remove()
+
+        items.removeIf{ it.status == ItemStatus.Done }
+
+        if (items.size < startsize) {
+            check = true
+            }
         // Return true if any were removed, false if none were removed
-        return false
+        return check
     }
 
     fun getItems(status: ItemStatus? = null): List<ToDoItem> {
         // Write code here to return a list of items with the matching
+        if(status == null) {
+            return items
+        } else {
+            val getenum = status
+            return items.filter { it.status == getenum }
+        }
+
         // status, or a list of all items if status argument is null
-        return emptyList()
     }
 
     fun getItemsDueOn(date: LocalDate): List<ToDoItem> {
         // Write code here to return a list of items
         // that are due on the specified date
-        return emptyList()
+        return items.filter { it.dueDate == date}
     }
 }
