@@ -21,8 +21,8 @@ abstract class BankAccount(val holder: String) {
     abstract fun withdraw(amount: Int)
 }
 
-class StudentAccount(holder: String, _overdraft: Int = 0) : BankAccount(holder) {
-    var overdraft = _overdraft
+class StudentAccount(holder: String) : BankAccount(holder) {
+    var overdraft = 0
         set(value) {
             require(value<= 100) {throw IllegalArgumentException()}
             require(value>= 0) {throw IllegalArgumentException()}
